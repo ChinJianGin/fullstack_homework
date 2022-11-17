@@ -1,10 +1,16 @@
 import { Layout } from "antd";
 import AppHeader from "../components/Header"
-import ArticleList from "../components/ArticleList";
+import { useParams } from "react-router-dom";
+import ArticleDetail from "../components/ArticleDetail";
+import { useArticleById } from "../react-query";
 
 
 const { Header, Content } = Layout
 function Article() {
+	const { articleId } = useParams();
+	const { data, isLoading } = useArticleById(articleId);
+	const article = data || {};
+
 	return(
 		<Layout className="">
 			<Header
@@ -14,12 +20,12 @@ function Article() {
 					width: '100%',
 				}}
 			>
-				<AppHeader title={"Article"}/>
+				<AppHeader title={"Article Detail"}/>
 			</Header>
 			<Content style={{ 
 				height: '720px',
 				padding: '100px 480px'}}>
-				<ArticleList />
+				<ArticleDetail article={article} isLoading={isLoading} />
 			</Content>
 		</Layout>
 	);

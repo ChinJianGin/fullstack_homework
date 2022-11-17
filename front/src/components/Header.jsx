@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom"
-
-
 const Header = ({title}) => {
 	return (
 		<header className="header">

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function ArticleItem({article}) {
 	return(
 		<Card>
-			<Link to={`/article/id/${article.id}`}>
+			<Link to={`/article/${article.id}`}>
 				<div>
 					<h2>
 						{article.title}

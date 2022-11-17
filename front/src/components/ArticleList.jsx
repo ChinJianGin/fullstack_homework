@@ -1,38 +1,19 @@
-import { Card, Col, Row } from "antd";
-import Markdown from "markdown-to-jsx";
-
-const { Meta } = Card
+import { Col, Row, Skeleton } from "antd";
+import ArticleItem from "./ArticleItem"
 
 
-const ArticleList = ( { articles } ) => {
-	const str = '##Card content'
+const ArticleList = ( { articles, isLoading} ) => {
 	return(
 		<div className="site-card-wrapper">
-    <Row>
-      <Col span={24}>
-        <Card title="Card title" bordered={false}>
-          Card content
-        </Card>
-      </Col>
-      <Col span={24}>
-        <Card title="Card title" bordered={false}>
-			<Markdown options={{ wrapper: 'article' }}>
-				{str}
-			</Markdown>	
-        </Card>
-      </Col>
-      <Col span={24}>
-        <Card title="Card title" bordered={false}>
-			<Meta title='Test' description='Hello world' />
-        </Card>
-      </Col>
-      <Col span={24}>
-        <Card title="Card title" bordered={false}>
-			<Meta title='Test' description='Hello world' />
-        </Card>
-      </Col>
-    </Row>
-  </div>
+			<Row>
+				{articles.map(article => ( 
+					<Col span={24} key={article.id}>
+						<Skeleton loading={isLoading} active> 
+							<ArticleItem article={article} /> 
+						</Skeleton> 
+					</Col>))}
+			</Row>
+		</div>
 	);	
 }
 

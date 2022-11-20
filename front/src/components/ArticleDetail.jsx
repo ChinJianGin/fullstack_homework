@@ -1,5 +1,7 @@
 import { Col, Row, Skeleton } from "antd";
 import Markdown from "markdown-to-jsx";
+import LikeComponent from "./LikeComponent";
+import CommentComponent from "./CommentComponent";
 
 function ArticleDetail({ article, isLoading}) {
 	const header_1 = `#`
@@ -26,6 +28,12 @@ function ArticleDetail({ article, isLoading}) {
 					{article.content}
 					</Markdown>
 				</Skeleton>
+			</Col>
+			<Col span={2}>
+				<LikeComponent />
+			</Col>
+			<Col span={2}>
+				<CommentComponent />
 			</Col>
 		</Row>
 	);

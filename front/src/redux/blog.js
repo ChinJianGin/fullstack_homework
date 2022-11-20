@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import articleSlice from './articleSlice';
+import siderSlice from "./siderSlice";
 
 const blog = configureStore({
 	reducer: {
-		article: articleSlice,
+		sider: siderSlice,
 	},
 	devTools: process.env.NODE_ENV !== 'production',
 });

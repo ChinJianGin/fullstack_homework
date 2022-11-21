@@ -11,7 +11,7 @@ export default function CommentComponent() {
 	const dispatch = useDispatch();
 	return (
 		<Badge count={3}>
-			<Button type="default" shape="circle" icon={ <CommentOutlined />} size="large" onClick={ () => dispatch(toggle(true)) } />
+			<Button type="default" shape="circle" icon={ <CommentOutlined />} size="large" onClick={ () => dispatch(toggle({activate: true, button: 1})) } />
 		</Badge>
 	);
 }

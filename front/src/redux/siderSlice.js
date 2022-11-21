@@ -1,15 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const initialState = { toggleSider: false };
+const initialState = { toggleSider: {activate: true, button: -1} };
 
 const siderSlice = createSlice({
 	name: 'sider',
 	initialState,
 	reducers: {
 		toggle: (state, action) => {
-			if(action.payload === true){
-				state.toggleSider = !state.toggleSider;
+			if(state.toggleSider.button === action.payload.button){
+				state.toggleSider.activate = !state.toggleSider.activate;
+			}else{
+				state.toggleSider.activate = false;
+				state.toggleSider.button = action.payload.button;
 			}
 		},
 	},

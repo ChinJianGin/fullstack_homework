@@ -1,4 +1,4 @@
-import { Comment, Layout } from "antd";
+import { Card, Col, Comment, Layout, Row } from "antd";
 import { useState } from "react"
 import AppHeader from "../components/Header"
 import { useParams } from "react-router-dom";
@@ -18,8 +18,14 @@ function Article() {
 		<Layout className="" style={{
 			minHeight: '100vh',
 		}}>
-			<Sider collapsible collapsed={toggle}>
-				<Comment content={<p>Hello world.</p>} />
+			<Sider trigger={null} collapsedWidth={0} width={300} collapsible collapsed={toggle.activate}>
+				<Row>
+					<Col span={24}>
+						<Card>
+							<Comment content={<p>Hello world.fdaofujdohgoeivhgnfiuoedhfgvisdsgfvjdhgsiu</p>} />
+		</Card>
+					</Col>
+				</Row>
 			</Sider>
 			<Layout className="site-layout">
 				<Header

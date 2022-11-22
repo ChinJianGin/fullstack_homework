@@ -27,6 +27,7 @@ class Orm_Comment(Base):
     owner_id = Column(Integer, ForeignKey('author.id'))
     comment = Column(String(1000), nullable=True)
     owner = relationship("Orm_Article", back_populates='article_comment')
+    myauthor = relationship("Orm_Author", back_populates='mycomment')
 
 
 class Orm_Author(Base):
@@ -34,3 +35,4 @@ class Orm_Author(Base):
     id = Column(Integer, primary_key=True, index=True)
     author = Column(String(30), nullable=False)
     owner = relationship("Orm_Article", secondary=association_table, back_populates='article_like')
+    mycomment = relationship("Orm_Comment", back_populates='myauthor')

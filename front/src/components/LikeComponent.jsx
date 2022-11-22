@@ -7,10 +7,11 @@ import {
 } from '@ant-design/icons';
 import { toggle } from "../redux/siderSlice";
 
-export default function LikeComponent() {
+export default function LikeComponent({like_num}) {
 	const dispatch = useDispatch();
+	const num = like_num || 0
 	return (
-		<Badge count={3}>
+		<Badge count={num}>
 			<Button type="default" shape="circle" icon = {<LikeOutlined />} size="large" onClick={ () => dispatch(toggle({activate: true, button: 0}))}/>
 		</Badge>
 	);

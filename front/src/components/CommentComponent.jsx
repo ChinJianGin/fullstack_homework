@@ -7,10 +7,11 @@ import {
 } from '@ant-design/icons';
 import { toggle } from "../redux/siderSlice";
 
-export default function CommentComponent() {
+export default function CommentComponent({comment_nums}) {
 	const dispatch = useDispatch();
+	const num = comment_nums || 0
 	return (
-		<Badge count={3}>
+		<Badge count={num}>
 			<Button type="default" shape="circle" icon={ <CommentOutlined />} size="large" onClick={ () => dispatch(toggle({activate: true, button: 1})) } />
 		</Badge>
 	);

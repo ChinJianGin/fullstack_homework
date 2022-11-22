@@ -6,6 +6,10 @@ import CommentComponent from "./CommentComponent";
 function ArticleDetail({ article, isLoading}) {
 	const header_1 = `#`
 	Headers = header_1.concat(` `, article.title)
+	const like_array = article.article_like || []
+	const like_nums = like_array?.length || 0
+	const comment_array = article.article_comment || []
+	const comment_nums = comment_array?.length || 0
 	return(
 		<Row gutter={[32, 32]} className="article-style">
 			<Col span={24}>
@@ -30,10 +34,10 @@ function ArticleDetail({ article, isLoading}) {
 				</Skeleton>
 			</Col>
 			<Col span={2}>
-				<LikeComponent />
+				<LikeComponent like_num={like_nums}/>
 			</Col>
 			<Col span={2}>
-				<CommentComponent />
+				<CommentComponent comment_nums={comment_nums}/>
 			</Col>
 		</Row>
 	);

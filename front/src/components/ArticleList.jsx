@@ -2,7 +2,7 @@ import { Col, Row, Skeleton } from "antd";
 import ArticleItem from "./ArticleItem"
 
 
-const ArticleList = ( { articles, isLoading} ) => {
+const ArticleList = ( { articles, isLoading } ) => {
 	return(
 		<div className="site-card-wrapper">
 			<Row>

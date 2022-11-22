@@ -26,6 +26,7 @@ class CommentRequest(BaseModel):
     article_id: int
     owner_id: int
     comment: str
+    myauthor: AuthorResponse
 
 class CommentResponse(CommentRequest):
     id: int
